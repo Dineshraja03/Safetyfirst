@@ -1,0 +1,177 @@
+/* Add these new classes for centering */
+.stress-test-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.stress-test-button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+/* For full-page centering */
+.stress-test-button.centered-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Button variants */
+.stress-test-button.standard {
+  padding: 12px 15px;
+  background-color: #007bff;
+  color: white;
+}
+
+.stress-test-button.compact {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+}
+
+.stress-test-button.outline {
+  padding: 10px 14px;
+  background-color: white;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.stress-test-button.floating {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
+  z-index: 100;
+}
+
+.stress-test-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Adjust hover transform for centered-page variant to maintain centering */
+.stress-test-button.centered-page:hover {
+  transform: translate(-50%, -53%); /* Maintains center position while moving up 3px */
+}
+
+.stress-test-button.standard:hover,
+.stress-test-button.compact:hover,
+.stress-test-button.floating:hover {
+  background-color: #0056b3;
+}
+
+.stress-test-button.outline:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+}
+
+.icon-container {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.stress-test-button.floating .icon-container {
+  margin-right: 0;
+}
+
+.brain-icon, .chart-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.brain-icon {
+  opacity: 1;
+}
+
+.chart-icon {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.stress-test-button:hover .brain-icon {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.stress-test-button:hover .chart-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.button-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-label {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.1;
+}
+
+.button-description {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(0, 123, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  }
+}
+
+.stress-test-button.pulse {
+  animation: pulse 1s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stress-test-button.floating {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  /* Make compact for mobile */
+  .stress-test-button.standard {
+    padding: 10px 12px;
+  }
+  
+  .button-label {
+    font-size: 0.9rem;
+  }
+  
+  .button-description {
+    font-size: 0.7rem;
+  }
+}

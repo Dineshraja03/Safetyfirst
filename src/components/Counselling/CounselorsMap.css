@@ -1,0 +1,1351 @@
+.counselors-map-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.map-modal-content {
+    background-color: #fff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    max-height: 800px;
+    overflow: hidden;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.map-modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a6bdf;
+    color: white;
+}
+
+.map-modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    transition: background-color 0.2s;
+}
+
+.close-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.map-content-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.map-container {
+    flex: 1;
+    position: relative;
+}
+
+/* Improved Counselor Panel Styles */
+
+/* Counselor panel container */
+.counselor-panel {
+  width: 380px;
+  background-color: #fff;
+  border-left: 1px solid #eee;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Counselor list header */
+.counselor-list-header {
+  padding: 18px 20px;
+  border-bottom: 1px solid #eaedf2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9fafc;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.counselor-list-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.sort-options select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #e0e4eb;
+  background-color: white;
+  font-size: 0.9rem;
+  color: #555;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.sort-options select:focus {
+  outline: none;
+  border-color: #4a6bdf;
+}
+
+/* Counselor list */
+.counselor-list {
+  padding: 8px;
+  overflow-y: auto;
+}
+
+/* Updated counselor card styles for more compact display */
+.counselor-card {
+  display: flex;
+  padding: 12px;  /* Reduced from 15px */
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 8px;  /* Reduced from 10px */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: auto;  /* Fixed height to ensure consistency */
+  align-items: center;
+}
+
+.counselor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+  border-color: #e6e9f0;
+}
+
+.counselor-card:active {
+  transform: translateY(-1px);
+}
+
+.counselor-image {
+  position: relative;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.counselor-image img {
+  width: 50px;  /* Reduced from 60px or 70px */
+  height: 50px;  /* Reduced from 60px or 70px */
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid white;
+}
+
+/* Adjust verified icon positioning for smaller profile image */
+.verified-icon {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background-color: #4CAF50;
+  color: white;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.counselor-info {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.counselor-info h4 {
+  margin: 0 0 2px 0;  /* Reduced from 5px bottom margin */
+  font-size: 0.95rem;  /* Slightly smaller font */
+  color: #333;
+  font-weight: 600;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.counselor-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;  /* Reduced from 8px */
+}
+
+.rating-small {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  color: #ddd;
+  font-size: 0.75rem;  /* Smaller stars */
+  margin-right: 1px;  /* Less spacing between stars */
+}
+
+.star.filled {
+  color: #FFC107;
+}
+
+.distance {
+  font-size: 0.85rem;
+  color: #666;
+  background-color: #f0f4ff;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.specializations {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.specialization {
+  font-size: 0.7rem;  /* Smaller text */
+  background-color: #f0f2f5;
+  padding: 1px 6px;  /* Reduced padding */
+  border-radius: 10px;
+  margin-right: 4px;
+  margin-bottom: 0;  /* Remove bottom margin */
+  color: #555;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.more-specializations {
+  font-size: 0.7rem;
+  color: #4a6bdf;
+}
+
+/* Counselor details view */
+.counselor-details {
+  padding: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.details-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eaedf2;
+  display: flex;
+  align-items: center;
+  background-color: #f9fafc;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.back-button2 {
+  background-color: transparent;
+  border: none;
+  color: #4a6bdf;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin-right: 12px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.back-button:hover {
+  background-color: #f0f4ff;
+}
+
+.back-button svg {
+  font-size: 1.2rem;
+}
+
+.details-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 600;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Counselor profile details */
+.counselor-profile {
+  display: flex;
+  padding: 25px 20px;
+  border-bottom: 1px solid #eaedf2;
+  background-color: white;
+}
+
+.profile-image {
+  position: relative;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.profile-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 3px solid white;
+}
+
+.verified-badge {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.4);
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.profile-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.rating .star {
+  font-size: 1.2rem;
+  margin-right: 4px;
+}
+
+.rating-number {
+  margin-left: 8px;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.profile-detail {
+  display: flex;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  align-items: baseline;
+}
+
+.detail-label {
+  width: 100px;
+  font-weight: 600;
+  color: #555;
+  flex-shrink: 0;
+}
+
+.detail-value {
+  color: #333;
+  flex: 1;
+}
+
+.specialization-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.specialization-tag {
+  background-color: #f0f4ff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #4a6bdf;
+  border: 1px solid #e0e8ff;
+}
+
+/* Content sections */
+.content-section {
+  padding: 20px;
+  border-bottom: 1px solid #eaedf2;
+}
+
+.counselor-bio, .counselor-qualifications {
+  padding: 20px;
+  border-bottom: 1px solid #eaedf2;
+}
+
+.counselor-bio h3, .counselor-qualifications h3 {
+  font-size: 1.1rem;
+  margin: 0 0 15px 0;
+  color: #333;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.counselor-bio h3:after, .counselor-qualifications h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #4a6bdf;
+  border-radius: 3px;
+}
+
+.counselor-bio p {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.counselor-qualifications ul {
+  padding-left: 20px;
+  color: #555;
+  margin: 0;
+}
+
+.counselor-qualifications li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.counselor-qualifications li:last-child {
+  margin-bottom: 0;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 10px;
+  background-color: white;
+  border-top: 1px solid #eaedf2;
+  position: sticky;
+  bottom: 0;
+  margin-top: auto;
+}
+
+.action-button {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.action-button:active {
+  transform: translateY(0);
+}
+
+.action-button svg {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.action-button.call {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.action-button.call:hover {
+  background-color: #43a047;
+}
+
+.action-button.email {
+  background-color: #2196F3;
+  color: white;
+}
+
+.action-button.email:hover {
+  background-color: #1e88e5;
+}
+
+.action-button.schedule {
+  background-color: #4a6bdf;
+  color: white;
+}
+
+.action-button.schedule:hover {
+  background-color: #3f5cce;
+}
+
+/* No results */
+.no-results {
+  padding: 30px 20px;
+  text-align: center;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .counselor-panel {
+    width: 100%;
+  }
+  
+  .counselor-profile {
+    padding: 20px;
+  }
+  
+  .profile-image img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .counselor-profile {
+    flex-direction: column;
+  }
+  
+  .profile-image {
+    margin-right: 0;
+    margin-bottom: 20px;
+    align-self: center;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .action-button {
+    margin: 5px 0;
+  }
+}
+
+.loading-overlay, .error-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(74, 107, 223, 0.3);
+    border-radius: 50%;
+    border-top-color: #4a6bdf;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-overlay p {
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.error-overlay button {
+    background-color: #4a6bdf;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.counselor-list-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counselor-list-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.sort-options select {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    font-size: 0.9rem;
+}
+
+.counselor-list {
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.counselor-card {
+    display: flex;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: auto;
+}
+
+.counselor-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.counselor-image {
+    position: relative;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.counselor-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.verified-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #4CAF50;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border: 2px solid white;
+}
+
+.counselor-info {
+    flex: 1;
+    overflow: hidden;
+}
+
+.counselor-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.counselor-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.rating-small {
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    color: #ddd;
+    font-size: 0.8rem;
+    margin-right: 2px;
+}
+
+.star.filled {
+    color: #FFC107;
+}
+
+.distance {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.specializations {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.specialization {
+    font-size: 0.75rem;
+    background-color: #f0f2f5;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color: #555;
+    white-space: nowrap;
+}
+
+.more-specializations {
+    font-size: 0.75rem;
+    color: #4a6bdf;
+}
+
+.no-results {
+    padding: 30px 20px;
+    text-align: center;
+    color: #666;
+}
+
+/* Counselor details view */
+.counselor-details {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.details-header {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.back-button {
+    background-color: transparent;
+    border: none;
+    color: #4a6bdf;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-right: 15px;
+}
+
+.back-button svg {
+    margin-right: 5px;
+}
+
+.details-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.counselor-profile {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.profile-image {
+    position: relative;
+    margin-right: 20px;
+}
+
+.profile-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.verified-badge {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.rating .star {
+    font-size: 1.2rem;
+    margin-right: 4px;
+}
+
+.rating-number {
+    margin-left: 5px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.profile-detail {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.detail-label {
+    width: 100px;
+    font-weight: 500;
+    color: #666;
+}
+
+.detail-value {
+    color: #333;
+}
+
+.specialization-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.specialization-tag {
+    background-color: #f0f2f5;
+    padding: 3px 10px;
+    border-radius: 15px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.counselor-bio, .counselor-qualifications {
+    margin-bottom: 25px;
+}
+
+.counselor-bio h3, .counselor-qualifications h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.counselor-bio p {
+    color: #555;
+    line-height: 1.5;
+}
+
+.counselor-qualifications ul {
+    padding-left: 20px;
+    color: #555;
+}
+
+.counselor-qualifications li {
+    margin-bottom: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.action-button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.action-button svg {
+    margin-right: 8px;
+}
+
+.action-button.call {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.action-button.email {
+    background-color: #2196F3;
+    color: white;
+}
+
+.action-button.schedule {
+    background-color: #4a6bdf;
+    color: white;
+}
+
+/* Map controls and filters */
+.map-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+}
+
+.location-button, .filter-button {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: #4a6bdf;
+    font-size: 1rem;
+}
+
+.filter-button.active {
+    background-color: #4a6bdf;
+    color: white;
+}
+
+.filter-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    width: 280px;
+    z-index: 999;
+}
+
+.filter-panel h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.filter-section {
+    margin-bottom: 15px;
+}
+
+.filter-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.filter-section input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.rating-filter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rating-filter button {
+    flex: 1;
+    padding: 8px 0;
+    background-color: #f0f2f5;
+    border: none;
+    color: #555;
+    cursor: pointer;
+}
+
+.rating-filter button:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.rating-filter button:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.rating-filter button.active {
+    background-color: #4a6bdf;
+    color: white;
+}
+
+/* Switch for verified only */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #4a6bdf;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.specialization-filters {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.specialization-filters button {
+    background-color: #f0f2f5;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.specialization-filters button.active {
+    background-color: #4a6bdf;
+    color: white;
+}
+
+/* Custom markers */
+.user-dot {
+    width: 20px;
+    height: 20px;
+    background-color: #4285F4;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.5);
+}
+
+.custom-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marker-inner {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.marker-inner.verified {
+    background-color: #4CAF50;
+}
+
+.marker-inner.standard {
+    background-color: #FF9800;
+}
+
+.counselor-popup {
+    text-align: center;
+    padding: 5px;
+}
+
+.counselor-popup h3 {
+    margin: 0 0 5px;
+    font-size: 14px;
+}
+
+.view-details-btn {
+    background-color: #4a6bdf;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* Make leaflet container take full height */
+.leaflet-container {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Responsive styles */
+@media (max-width: 1000px) {
+    .map-modal-content {
+        width: 95%;
+        height: 95vh;
+    }
+    
+    .map-content-container {
+        flex-direction: column;
+    }
+    
+    .map-container {
+        height: 50%;
+        min-height: 300px;
+    }
+    
+    .counselor-panel {
+        width: 100%;
+        height: 50%;
+        border-left: none;
+        border-top: 1px solid #eee;
+    }
+}
+
+@media (max-width: 600px) {
+    .counselor-profile {
+        flex-direction: column;
+    }
+    
+    .profile-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-button {
+        margin: 5px 0;
+    }
+    
+    .filter-panel {
+        width: calc(100% - 40px);
+    }
+}
+
+/* Add these styles to your CounselorsMap.css file */
+
+/* Grid layout for counselor cards */
+.counselor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.counselor-block {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 185px;
+}
+
+.counselor-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.counselor-block-image {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  background-color: #f5f7fa;
+}
+
+.counselor-block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-image .verified-badge{
+  background-color: #1b9f14;
+  color: rgb(255, 255, 255);
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  /* gap: 2px; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 70px;
+}
+
+.verified-badge-small {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #4CAF50;
+  color: rgb(255, 255, 255);
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.verified-badge-small svg {
+  font-size: 0.7rem;
+}
+
+.counselor-block-content {
+  padding: 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.counselor-block-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 0 5px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.rating-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.rating-block .star {
+  font-size: 0.85rem;
+}
+
+.rating-text {
+  color: #666;
+  font-size: 0.8rem;
+  margin-left: 3px;
+  font-weight: 500;
+}
+
+/* Make it more responsive */
+@media (max-width: 500px) {
+  .counselor-grid {
+    grid-template-columns: 1fr;
+  }
+}

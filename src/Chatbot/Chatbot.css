@@ -1,0 +1,127 @@
+.chatbot-container {
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
+  width: 350px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+.chatbot-header {
+  padding: 17px 15px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 15px 15px 0 0;
+}
+
+.chatbot-body {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.chatbot-message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.chatbot-message.bot {
+  background-color: #e0f7fa;
+  align-self: flex-start;
+}
+
+.chatbot-message.user {
+  background-color: #d1c4e9;
+  align-self: flex-end;
+}
+
+.chatbot-predefined-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+.chatbot-question-button {
+  padding: 15px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.chatbot-question-button:hover {
+  background-color: #007bff;
+}
+
+.chatbot-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.chatbot-input button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chatbot-input button:hover {
+  background-color: #007bff;
+}
+
+.chatbot-reset-button {
+  margin: 10px;
+  padding: 10px 15px;
+  background-color: #007bff; /* Ensure consistent blue color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.chatbot-reset-button:hover {
+  background-color: #007bff; /* Darker blue on hover */
+}
+
+.chatbot-container.open {
+  height: auto;
+}
+
+.chatbot-container:not(.open) {
+  height: 50px;
+  width: 150px;
+}

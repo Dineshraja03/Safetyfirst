@@ -1,0 +1,307 @@
+.emergency-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f9f9f9, #f0f0f0);
+  padding-bottom: 40px;
+}
+
+.emergency-header {
+  background-color: #e63946;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix the Back to Home button */
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1565c0; /* Solid blue background */
+  border: none;
+  color: white; /* White text */
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+.back-button:hover {
+  background-color: #0d47a1; /* Darker blue on hover */
+}
+
+.sos-pulse {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s infinite;
+}
+
+.sos-pulse:before {
+  content: "SOS";
+  color: #e63946;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.emergency-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.emergency-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.emergency-title h1 {
+  color: #e63946;
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #555;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.location-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f1f1f1;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.location-indicator svg {
+  color: #e63946;
+}
+
+.emergency-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.emergency-option {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.option-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.phone-icon {
+  background-color: #ffcccb;
+  color: #e63946;
+}
+
+.counselor-icon {
+  background-color: #c8e6c9;
+  color: #388e3c;
+}
+
+.report-icon {
+  background-color: #fff9c4;
+  color: #f57f17;
+}
+
+.legal-icon {
+  background-color: #bbdefb;
+  color: #1976d2;
+}
+
+.emergency-option h2 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.emergency-option p {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Emergency Numbers section */
+.emergency-numbers {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.emergency-number-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.emergency-number-item:hover {
+  background-color: #f9f9f9;
+}
+
+.emergency-number-item:last-child {
+  border-bottom: none;
+}
+
+.number-name {
+  font-weight: 500;
+}
+
+.number {
+  font-weight: 700;
+  color: #e63946;
+}
+
+.call-now-button {
+  background-color: #e63946;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-top: auto;
+  display: inline-block;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.call-now-button:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px);
+}
+
+.location-text {
+  font-style: italic;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Make sure Find Counselors button is rounded like other action buttons */
+.action-button {
+  background-color: #1976d2;
+  color: white;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 30px; /* Make sure this is 30px for rounded corners */
+  font-weight: 600; 
+  margin-top: auto;
+  display: inline-block;
+  transition: background-color 0.2s, transform 0.2s;
+  width: auto; /* Make sure it's not constrained by width */
+  text-align: center; /* Center text */
+}
+
+.action-button:hover {
+  background-color: #1565c0;
+  transform: translateY(-2px);
+}
+
+.report-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.report-button {
+  background-color: #f57f17;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.report-button:hover {
+  background-color: #e65100;
+}
+
+.legal-options {
+  margin-top: auto;
+}
+
+.safety-reminder {
+  background-color: #ffebee;
+  border-left: 5px solid #e63946;
+  padding: 20px 25px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.safety-reminder h3 {
+  color: #e63946;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.safety-reminder p {
+  margin: 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .emergency-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .emergency-title h1 {
+    font-size: 2rem;
+  }
+  
+  .emergency-option {
+    padding: 25px 20px;
+  }
+  
+  .option-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+}

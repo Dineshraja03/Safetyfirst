@@ -1,0 +1,313 @@
+.games-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Hero Section Styles */
+.games-hero {
+  background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.hero-content p{
+  color: white;
+}
+.hero-icon {
+  font-size: 4rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.games-hero h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* Games Section Styles */
+.games-section {
+  margin-bottom: 4rem;
+}
+
+.games-section h2,
+.benefits-section h2,
+.achievement-tracker h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+  font-size: 2rem;
+  position: relative;
+}
+
+.games-section h2::after,
+.benefits-section h2::after,
+.achievement-tracker h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #6e48aa, #9d50bb);
+  border-radius: 3px;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.game-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.game-icon {
+  background: linear-gradient(180deg, #6e48aa 0%, #9d50bb 100%);
+  color: white;
+  padding: 2rem;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+}
+
+.game-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  color: #333;
+  font-size: 1.4rem;
+}
+
+.game-card p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.game-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.game-difficulty {
+  color: #6e48aa;
+  font-weight: bold;
+  padding: 3px 10px;
+  background: #f0ebf8;
+  border-radius: 20px;
+}
+
+.game-time {
+  color: #666;
+}
+
+.play-button {
+  background: linear-gradient(90deg, #6e48aa, #9d50bb);
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.play-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
+}
+
+/* Benefits Section Styles */
+.benefits-section {
+  margin-bottom: 4rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-card h3 {
+  color: #6e48aa;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.benefit-card p {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Achievement Tracker Styles */
+.achievement-tracker {
+  background: rgba(110, 72, 170, 0.08);
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.progress-container {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.progress-bar {
+  background: #e2d7f0;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #6e48aa, #9d50bb);
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  color: #666;
+  font-weight: 500;
+}
+
+.achievement-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+}
+
+.badge-icon {
+  width: 60px;
+  height: 60px;
+  background: #e2d7f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.5;
+}
+
+.badge p {
+  color: #666;
+  font-size: 0.85rem;
+  text-align: center;
+  margin: 0;
+  opacity: 0.5;
+}
+
+.badge.unlocked .badge-icon,
+.badge.unlocked p {
+  opacity: 1;
+  background: #f0ebf8;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .games-hero {
+    padding: 2rem 1.5rem;
+  }
+  
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .game-card {
+    flex-direction: column;
+  }
+  
+  .game-icon {
+    padding: 1.5rem;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 576px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .achievement-badges {
+    gap: 1rem;
+  }
+}

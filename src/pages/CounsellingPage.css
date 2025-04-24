@@ -1,0 +1,141 @@
+.counselling-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Hero Section Styling */
+.counselling-hero {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #ffb655 0%, #d3765a 100%);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+.counselling-hero .hero-icon{
+  color: #d3765a;
+  background-color: white;
+}
+.hero-icon {
+  font-size: 5rem;
+  color: #4a6bdf;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+}
+
+.hero-content h1 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 2.4rem;
+}
+.hero-content p{
+  color: #000000a3;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  position: relative;
+  padding-left: 20px;
+  border-left: 4px solid #4a6bdf;
+}
+
+/* Options Grid Styling */
+.counselling-options-container {
+  padding: 1rem 0;
+}
+
+.counselling-options-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-size: 1.8rem;
+}
+
+.counselling-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.counselling-option {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.counselling-option:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.option-icon {
+  font-size: 2.5rem;
+  color: #4a6bdf;
+  margin-bottom: 1rem;
+  background-color: rgba(74, 107, 223, 0.1);
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.counselling-option h3 {
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem;
+}
+
+.counselling-option p {
+  color: #7f8c8d;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.option-btn {
+  background-color: #4a6bdf;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  margin-top: auto;
+}
+
+.option-btn:hover {
+  background-color: #3955b8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .counselling-hero {
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .hero-icon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .counselling-grid {
+    grid-template-columns: 1fr;
+  }
+}
