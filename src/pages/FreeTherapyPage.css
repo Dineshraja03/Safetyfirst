@@ -370,17 +370,22 @@
     padding: 25px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.info-icon {
+.info-icon  {
     font-size: 2rem;
     color: #4a6bdf;
     margin-bottom: 15px;
+    margin-top: 5px;
 }
 
 .info-card h3 {
     margin: 0 0 15px 0;
     color: #333;
+    font-size: 1.4rem;
 }
 
 .info-card p {

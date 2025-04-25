@@ -122,9 +122,9 @@ const MindfulnessGame = () => {
               ? `Currently ${breathPhase === 'inhale' ? 'inhaling' : breathPhase === 'hold' ? 'holding breath' : 'exhaling'}. ${breathCount} of 5 breaths completed.` 
               : 'Click to start breathing exercise'}
           >
-            {breathPhase === 'inhale' && <p>Breathe In</p>}
-            {breathPhase === 'hold' && <p>Hold</p>}
-            {breathPhase === 'exhale' && <p>Breathe Out</p>}
+            {isBreathing && breathPhase === 'inhale' && <p>Breathe In</p>}
+            {isBreathing && breathPhase === 'hold' && <p>Hold</p>}
+            {isBreathing && breathPhase === 'exhale' && <p>Breathe Out</p>}
             {!isBreathing && <p>Click to Begin</p>}
           </div>
           <div className="breath-counter">

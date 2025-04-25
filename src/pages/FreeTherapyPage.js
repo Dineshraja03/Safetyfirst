@@ -190,26 +190,26 @@ const FreeTherapyPage = () => {
                 <div className="free-therapy-section info-section">
                     <div className="info-cards">
                         <div className="info-card">
+                            <h3>24/7 Support</h3>
                             <div className="info-icon">
                                 <MdAccessTime />
                             </div>
-                            <h3>24/7 Support</h3>
                             <p>Mental health doesn't follow a schedule. Many resources offer round-the-clock support when you need it most.</p>
                         </div>
                         
                         <div className="info-card">
+                            <h3>Community Healing</h3>
                             <div className="info-icon">
                                 <MdGroups />
                             </div>
-                            <h3>Community Healing</h3>
                             <p>Group therapy sessions provide peer support and remind you that you're not alone in your journey.</p>
                         </div>
                         
                         <div className="info-card">
+                            <h3>Access Anywhere</h3>
                             <div className="info-icon">
                                 <MdLocationOn />
                             </div>
-                            <h3>Access Anywhere</h3>
                             <p>Virtual sessions and digital resources break down geographical barriers to quality mental health care.</p>
                         </div>
                     </div>

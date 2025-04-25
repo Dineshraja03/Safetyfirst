@@ -464,6 +464,7 @@ input:checked + .toggle-slider:before {
     margin-top: auto;
     padding-top: 15px;
     border-top: 1px solid #f0f0f0;
+    gap: 25px;
 }
 
 .price {
